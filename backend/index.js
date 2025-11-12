@@ -3,22 +3,24 @@ const app = express()
 
 const cors = require('cors')
 
-const PORT = 3000  //´port
-const hostname = 'localhost' //endereço IP
+// PORT do TCP
+const PORT = 3000 
 
-//-----------------Middleware----------
+// endereço IP = 127.0.0.1 do servidor de teste
+const hostname = 'localhost' 
 
+// ------------ Middleware ---------------------
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(cors())
+// ---------------------------------------------
 
-//-------------------------------------
-app.get('/', (req,res) =>{
-    res.status(200).json({message: 'aplicação rodando'})
+app.get('/', (req,res)=>{
+    res.status(200).json({message: 'Aplicação Rodando!'})
 })
 
 app.post('/login', (req,res)=>{
-    const email_bd = 'pedro@gmail.com'
+    const email_bd = 'carlos@gmail.com'
     const senha_bd = 123
 
     const valores = req.body
@@ -27,27 +29,17 @@ app.post('/login', (req,res)=>{
 
     if(email_bd === valores.email){
         if(senha_bd === valores.senha){
-            return res.status(200).json({message: 'login realizado com sucesso'})
+            return res.status(200).json({ message: 'login realizado com sucesso!'})
         }else{
-            return res.status(403).json({message: 'senha incorreta'})
+            return res.status(403).json({ message: 'Acesso não autorizado!'})
         }
     }else{
-        res.status(404).json({message: 'usuário não encontrado'})
+        return res.status(404).json({message: 'Usuário não encontrado'})
     }
-
-
-    res.status(200).json(valores)
-
+    
 })
 
-
-// app.get('/', (req,res) =>{
-//     res.send('hello world')
-// })
-
-
-
-//--------------------------------------
-app.listen(PORT,hostname, ()=>{
+// ---------------- Server ---------------------
+app.listen(PORT, hostname, ()=>{
     console.log(`http://${hostname}:${PORT}`)
 })

@@ -9,9 +9,9 @@
     "Node",
     "Javascript"
   ],
-  "author": "Pedro Krefta",
+  "author": "Carlos",
   "license": "MIT",
-  "description": "sistema back-end",
+  "description": "Sistema Backend",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",

@@ -2,10 +2,12 @@ let res = document.getElementById('res')
 let btnLogin = document.getElementById('btnLogin')
 
 btnLogin.addEventListener('click', ()=>{
+    let nome = document.getElementById('nome').value
     let email = document.getElementById('email').value
     let senha = Number(document.getElementById('senha').value)
 
     const valores = {
+        nome: nome,
         email: email, 
         senha: senha
     }
@@ -18,6 +20,10 @@ btnLogin.addEventListener('click', ()=>{
     .then(resp => resp.json())
     .then(dados =>{
         res.innerHTML = ''
-        res.innerHTML += dados.message
+        res.innerHTML += dados.message,'<br>'
+
+        localStorage.setItem('nome', dados.nome)
+        localStorage.setItem('status', dados.statusLog)
+        console.log(dados)
     })
 })

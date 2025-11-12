@@ -19,8 +19,19 @@ app.get('/', (req,res)=>{
     res.status(200).json({message: 'Aplicação Rodando!'})
 })
 
+app.get('/login', (req,res)=> {
+    const email_bd = 'pedro@gmail.com'
+    const senha_bd = 123
+
+    const dados = {
+        email: email_bd,
+        senha: senha_bd
+    }
+    res.status(200).json(dados)
+})
+
 app.post('/login', (req,res)=>{
-    const email_bd = 'carlos@gmail.com'
+    const email_bd = 'pedro@gmail.com'
     const senha_bd = 123
 
     const valores = req.body
@@ -29,7 +40,10 @@ app.post('/login', (req,res)=>{
 
     if(email_bd === valores.email){
         if(senha_bd === valores.senha){
-            return res.status(200).json({ message: 'login realizado com sucesso!'})
+            return res.status(200).json({ message: 'login realizado com sucesso! <br>',
+             nome: valores.nome,
+             statusLog: 'true'}
+            )
         }else{
             return res.status(403).json({ message: 'Acesso não autorizado!'})
         }

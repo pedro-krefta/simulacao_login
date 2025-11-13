@@ -23,7 +23,8 @@ btnLogin.addEventListener('click', ()=>{
         res.innerHTML += dados.message,'<br>'
 
         localStorage.setItem('nome', dados.nome)
-        localStorage.setItem('status', dados.statusLog)
+        localStorage.setItem('statu', dados.statusLog)
+        
         console.log(dados)
     })
 })

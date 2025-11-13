@@ -17,9 +17,9 @@ lerDados.addEventListener('mouseover', ()=> {
 })
 }else{
     location.href = './index.html'
- } 
+ }
 
-
+ 
 logout.addEventListener('click', ()=>{
     localStorage.clear()
     location.href = './index.html'
